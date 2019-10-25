@@ -23,14 +23,11 @@ public class Rectangle {
         if (height < 0) {
             this.height = 1;
         }
-        if (color.length() < 2 || color.length() > 20) {
-            System.out.println("Color has to be more than 2 characters long and less than 20.");
-            throw new IllegalArgumentException();
+        if (color.length() > 2 && color.length() < 20 && (color.charAt(0) >= 'A' && color.charAt(0) <= 'Z')) {
+            this.color = color;
         }
-        color = color.substring(0, 1).toUpperCase() + color.substring(1).toLowerCase();
         this.width = width;
         this.height = height;
-        this.color = color;
     }
 
     public void draw() {
@@ -65,14 +62,5 @@ public class Rectangle {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 5; j++) {
-                System.out.print("B");
-            }
-            System.out.println();
-        }
     }
 }
